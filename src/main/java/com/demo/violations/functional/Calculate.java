@@ -5,13 +5,21 @@ import com.demo.violations.data.Type;
 import com.demo.violations.data.Violation;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Calculate {
 
-
+    public Map<String, List<Violation>> collectAllByPerson(Collection<Violation> listOf) {
+        return listOf.stream()
+                .map(violation -> violation.getFirst_name() + " " + violation.getLast_name())
+                .distinct()
+                .collect(Collectors.toMap(x -> x, y -> new ArrayList<Violation>()));
+    }
 
     public List<StatisticsTotal> list(List<Violation> violationList) {
         List<StatisticsTotal> sorted = new ArrayList<>();
