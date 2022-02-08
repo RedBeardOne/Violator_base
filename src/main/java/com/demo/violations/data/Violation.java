@@ -3,6 +3,7 @@ package com.demo.violations.data;
 import lombok.*;
 
 import javax.xml.crypto.Data;
+import java.util.Date;
 
 
 @Getter
@@ -11,7 +12,7 @@ import javax.xml.crypto.Data;
 @AllArgsConstructor
 
 public class Violation {
-    private Data date;
+    private Date date;
     private String first_name;
     private String last_name;
     private Type type;
